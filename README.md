@@ -10,6 +10,7 @@
   ## Directory Structure
 <pre>
 <code>
+merchandise_classifier
 ├── fastapi
 ├── model
 └── streamlit
