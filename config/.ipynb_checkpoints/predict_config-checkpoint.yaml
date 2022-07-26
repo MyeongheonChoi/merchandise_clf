@@ -1,0 +1,10 @@
+DIRECTORY:
+    dataset: splitdataset
+    phase: test
+    
+TRAIN:
+    train_serial: ??
+    
+PREDICT:
+    seed: 2022 
+    gpu: 0

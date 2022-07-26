@@ -1,0 +1,8 @@
+DATASET:
+    dst_dataset: uncased_train.csv
+    
+SPLIT:
+    train: 0.8
+    valid: 0.2
+    seed: 2022
+    
