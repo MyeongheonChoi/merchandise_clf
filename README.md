@@ -10,11 +10,9 @@
   ## Directory Structure
 <pre>
 <code>
-├── modules
-├── utils
-어쩌구저쩌구
-│   └── 
-└──
+├── fastapi
+├── model
+└── streamlit
 </code>
 </pre>
 
