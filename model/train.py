@@ -90,7 +90,7 @@ if __name__ == '__main__':
     
     # Train
     trainer.train()
-    trainer.save_model(f'{config.MODEL.model_name}_{config.TRAIN.max_seq_len}_{config.TRAIN.loss_function}')
+    trainer.save_model(f'{config.MODEL.model_name}_{config.TRAIN.max_seq_len}_{config.TRAIN.loss}')
 
 
     # Test
