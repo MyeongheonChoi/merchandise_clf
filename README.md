@@ -1,13 +1,13 @@
 # 가맹점 분류기
-- 프로젝트 소개
-- 데이터 설명
-- 모델 설명
-- 실험 설명
-- 결과
-- streamlit, fastapi 설명
-  - directory structure
-  
-  ## Directory Structure
+## 프로젝트 소개
+## 데이터 수집 및 전처리
+## 실험
+### 사용한 모델
+### 실험 결과
+## 데모
+`Streamlit`, `FastAPI`로 웹서비스 구현
+ 
+### Directory Structure
 <pre>
 <code>
 merchandise_classifier
@@ -17,4 +17,4 @@ merchandise_classifier
 </code>
 </pre>
 
-- 데모 
+
