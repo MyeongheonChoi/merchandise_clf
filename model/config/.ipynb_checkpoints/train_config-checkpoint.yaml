@@ -1,0 +1,47 @@
+DIRECTORY:
+    dataset:
+        uncased: uncased
+        cased: cased
+        nonumber: nonumber
+
+SEED:
+    random_seed: 2022
+    
+DATALOADER:
+    batch_size: 256
+    shuffle: True
+    drop_last: False
+    
+MODEL:
+    model_name:
+        cnn1d : cnn1d
+        kobert : KoBERT
+        koelectra : KoELECTRA
+        roberta : RoBERTa
+        
+    pretrained_link:
+        kobert: kykim/bert-kor-base
+        koelectra: monologg/koelectra-base-v3-discriminator
+        roberta: klue/roberta-base
+    
+    num_of_classes: 19
+
+TRAIN:
+    num_of_epochs: 5
+    batch_size: 256
+    max_seq_len: 26
+    learning_rate:
+        pretrained: 0.00005
+        cnn1d: 0.025
+    dropout: 0.5
+    max_grad_norm: 1
+    warmup_ratio: 0.1
+    loss:
+        cross-entropy: CrossEntropyLoss
+        focal-loss: FocalLoss
+        weighted-ce: WeightedCE
+    optimizer: AdamW
+    metric:
+        - f1score
+        - accuracy
+    
