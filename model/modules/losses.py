@@ -24,7 +24,7 @@ def get_loss_fn(loss_function: str):
                                     force_reload = False)
                                     
     elif loss_function == 'WeightedCE':
-        loss_fn = CrossEntropyLoss(weight = torch.tensor((1 / data['업종'].value_counts().sort_index()) / (1 / data['업종'].value_counts().sort_index()).sum()).to(device))
+        loss_fn = CrossEntropyLoss(weight = torch.FloatTensor((1 / data['업종'].value_counts().sort_index()) / (1 / data['업종'].value_counts().sort_index()).sum()).to(device))
     else:
         loss_fn = CrossEntropyLoss()
         print('\n!!!Loss function is Automatically determined (CrossEntropyLoss)!!!\n')

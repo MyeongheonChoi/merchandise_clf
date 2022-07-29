@@ -22,7 +22,7 @@ MODEL:
 TRAIN:
     num_of_epochs: 5
     batch_size: 256
-    max_seq_len: 26
+    max_seq_len: 26         #26, 32
     learning_rate:
         pretrained: 0.00005
         cnn1d: 0.025

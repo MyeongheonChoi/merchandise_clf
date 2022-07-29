@@ -88,8 +88,8 @@ def inference(data):
     output_dir      = OUTPUT_DIR
     pretrained_link = config.MODEL.pretrained_link[config.MODEL.model_name]
     num_of_classes  = config.MODEL.num_of_classes
-    max_seq_len     = config.TRAIN.max_seq_len
-    checkpoint_path = OUTPUT_DIR
+    max_seq_len     = config.MODEL.max_seq_len
+    checkpoint_path = CHECKPOINT_DIR
     
     print('=' * 50)
     print('Get Model & Tokenizer')
@@ -145,16 +145,16 @@ def inference(data):
         return data
     
 if __name__ == '__main__':
-    # print('=' * 50)
-    # print('Preprocessing...')
-    # print('=' * 50)
-#DataFrame
-    # A = inference(preprocess_infer(pd.read_csv('/VOLUME/py_model/data/거래내역.csv', index_col = 0)))
-    # A.to_csv('inferenced.csv')
-    # print(A)
+#     print('=' * 50)
+#     print('Preprocessing...')
+#     print('=' * 50)
+# DataFrame
+#     A = inference(preprocess_infer(pd.read_csv('/VOLUME/py_model/data/거래내역.csv', index_col = 0)))
+#     A.to_csv('inferenced.csv')
+#     print(A)
 #단어
-    B = inference(preprocess_infer('쎄븐일레븐'))
-    print(B)
+    # B = inference(preprocess_infer('쎄븐일레븐'))
+    # print(B)
     pass
 
 ### 문자를 넣으면 업종을 return

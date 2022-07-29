@@ -1,20 +1,24 @@
 MODEL:
     RESULTS:
-        KoBERT_26_CrossEntropy : checkpoint-6500
-        KoBERT_26_FocalLoss : checkpoint-6000
-        KoBERT_26_WeightedCrossEntropy : checkpoint-6500
-        KoBERT_32_CrossEntropy : checkpoint-6000
-        KoBERT_32_FocalLoss : checkpoint-6500
-        KoELECTRA_26_CrossEntropy : checkpoint-6000
-        KoELECTRA_26_FocalLoss : checkpoint-6500
-        KoELECTRA_26_WeightedCrossEntropy : checkpoint-6000
-        KoELECTRA_32_CrossEntropy : checkpoint-6500
-        KoELECTRA_32_FocalLoss : checkpoint-6000
-        RoBERTa_26_CrossEntropy : checkpoint-6500
-        RoBERTa_26_FocalLoss : checkpoint-6000
-        RoBERTa_26_WeightedCrossEntropy : checkpoint-6500
-        RoBERTa_32_CrossEntropy : checkpoint-6000
-        RoBERTa_32_FocalLoss : checkpoint-6500
+        KoBERT_26_CrossEntropy : KoBERT_26_CrossEntropyLoss
+        KoBERT_26_FocalLoss : KoBERT_26_FocalLoss
+        KoBERT_26_WeightedCrossEntropy : KoBERT_26_WeightedCE
+        KoBERT_32_CrossEntropy : KoBERT_32_CrossEntropyLoss
+        KoBERT_32_FocalLoss : KoBERT_32_FocalLoss
+        KoELECTRA_26_CrossEntropy : KoELECTRA_26_CrossEntropyLoss
+        KoELECTRA_26_FocalLoss : KoELECTRA_26_FocalLoss
+        KoELECTRA_26_WeightedCrossEntropy : KoELECTRA_26_WeightedCE
+        KoELECTRA_32_CrossEntropy : KoELECTRA_32_CrossEntropyLoss
+        KoELECTRA_32_FocalLoss : KoELECTRA_32_FocalLoss
+        RoBERTa_26_CrossEntropy : RoBERTa_26_CrossEntropyLoss
+        RoBERTa_26_FocalLoss : RoBERTa_26_FocalLoss
+        RoBERTa_26_WeightedCrossEntropy : RoBERTa_26_WeightedCE
+        RoBERTa_32_CrossEntropy : RoBERTa_32_CrossEntropyLoss
+        RoBERTa_32_FocalLoss : RoBERTa_32_FocalLoss
+    
+    model_name: KoBERT         #KoBERT, KoELECTRA, RoBERTa
+
+    max_seq_len: 26             #26, 32
 
     pretrained_link: 
         KoBERT: kykim/bert-kor-base
@@ -26,7 +30,7 @@ MODEL:
 TEST:
     DIRECTORY : 
         dataset : uncased
-    CHECKPOINT_PATH : 'checkpoint-6500'
+    CHECKPOINT_PATH : 'KoBERT_26_CrossEntropyLoss'      #{model_name}_{max_seq_len}_{lossfn}
 
 LABELING:
     0: '교육'

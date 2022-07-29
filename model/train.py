@@ -11,7 +11,7 @@ from modules.dataset import CustomDataset
 from modules.optimizer import get_optimizer
 from modules.metrics import compute_metrics
 from modules.utils import load_yaml
-from scripts.split import split
+from modules.split import split
 
 # Root directory
 PROJECT_DIR = os.path.dirname(__file__)
@@ -67,9 +67,9 @@ if __name__ == '__main__':
                                       report_to = 'wandb',
                                       run_name = run_name, 
                                       dataloader_pin_memory = False,
-                                      logging_steps = 200, 
+                                      logging_steps = 500, 
                                       load_best_model_at_end = True, 
-                                      save_steps = 200
+                                      save_steps = 500
                                       )
 
     model = AutoModelForSequenceClassification.from_pretrained(pretrained_link, num_labels = num_of_classes).to(device)
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     
     # Train
     trainer.train()
-    trainer.save_model(f'{config.MODEL.model_name}_{config.TRAIN.max_seq_len}_{config.TRAIN.loss}')
+    trainer.save_model(os.path.join(OUTPUT_DIR, f'{config.MODEL.model_name}_{config.TRAIN.max_seq_len}_{config.TRAIN.loss}'))
 
 
     # Test

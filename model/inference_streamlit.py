@@ -1,5 +1,3 @@
-
-
 import os, torch, sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
@@ -12,7 +10,6 @@ from transformers import TrainingArguments, AutoModelForSequenceClassification, 
 from modules.metrics import compute_metrics
 from modules.trainer import CustomTrainer
 from modules.utils import load_yaml
-from modules.preprocess import preprocess_infer
 
 
 # Root directory
@@ -29,6 +26,7 @@ def load_model(select_model, maxlen, loss):
 
     name = f'{select_model}_{maxlen}_{"".join(loss.split())}'
     output_dir      = os.path.join(PROJECT_DIR, 'results', config.MODEL.RESULTS[name])
+    os.makedirs(output_dir, exist_ok=True)
     pretrained_link = config.MODEL.pretrained_link[select_model]
     num_of_classes  = config.MODEL.num_of_classes
     checkpoint_path = output_dir
@@ -53,7 +51,7 @@ def load_model(select_model, maxlen, loss):
 
     return trainer, tokenizer
 
-def inference(data, max_seq_len, trainer, tokenizer):
+def inference(data, max_seq_len, trainer, tokenizer, topk = False, k = 5):
 
     print('=' * 50)
     print('Tokenizing...')
@@ -81,17 +79,26 @@ def inference(data, max_seq_len, trainer, tokenizer):
     print('=' * 50)
 
     test_results = trainer.predict(items)
-    label_ids = np.argmax(test_results[0], axis = 1)
-
+    top_val, top_ind = torch.topk(torch.nn.Softmax(dim = 1)(torch.FloatTensor(test_results.predictions)), k = k, dim = 1)
+    top_val = top_val.detach().cpu().numpy()
+    top_ind = top_ind.detach().cpu().numpy()
+    max_val = top_val[:, 0]
+    max_ind = top_ind[:, 0]
     if type(data) == str:
-        return config.LABELING[label_ids[0]]
+        if topk:
+            return np.array(pd.DataFrame(top_ind).replace(config.LABELING.keys(), config.LABELING.values())), top_val
+        else:
+            return config.LABELING[max_ind[0]], max_val[0]
 
     elif type(data) == pd.DataFrame:
-        data['업종'] = label_ids
+        data['업종'] = max_ind
         data['업종'] = data['업종'].replace(config.LABELING.keys(), config.LABELING.values())
-        return data
-    
+        return data, max_val
+
+# from modules.preprocess import preprocess_infer
 if __name__ == '__main__':
+    # a, b = load_model('KoBERT', 26, 'CrossEntropy')
+    # c = inference(preprocess_infer(pd.read_csv('거래내역_test.csv', index_col = 0)),26, a, b, topk = True)
     pass
 
 ### 문자를 넣으면 업종을 return
