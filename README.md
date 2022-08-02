@@ -1,5 +1,8 @@
 # 가맹점 분류기
 ## 프로젝트 소개
+![프로젝트 소개](https://user-images.githubusercontent.com/97024674/182273714-e00c0fe4-bacf-446a-9e64-f9c153cb0d0c.png)
+
+
 ## 데이터 수집 및 전처리
 ## 실험
 ### 사용한 모델
