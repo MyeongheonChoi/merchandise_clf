@@ -2,14 +2,14 @@
 ## - 프로젝트 소개
 ![프로젝트 소개](https://user-images.githubusercontent.com/97024674/182273714-e00c0fe4-bacf-446a-9e64-f9c153cb0d0c.png)
 
-## - 데이터 수집 및 전처리
+## * 데이터 수집 및 전처리
 ![데이터 소개](https://user-images.githubusercontent.com/97024674/182273836-e6958ba0-b951-4367-9bdb-b771f3e56855.png)
 ![데이터 Labeling](https://user-images.githubusercontent.com/97024674/182273877-48076fa2-cfcb-4332-b05e-8a3625d2c21c.png)
 ![데이터 전처리 1](https://user-images.githubusercontent.com/97024674/182273903-85320329-cb08-40f6-b767-8de04d800e03.png)
 ![데이터 전처리 2](https://user-images.githubusercontent.com/97024674/182273942-8f4701f1-ecfa-42e7-83a2-0fd84c55b51d.png)
 ![데이터 전처리 3](https://user-images.githubusercontent.com/97024674/182273977-a47eb134-1d74-4146-9fe4-7bf10c793d48.png)
 
-## - 실험
+## * 실험
 ![실험 소개](https://user-images.githubusercontent.com/97024674/182274033-6e1334e2-3c55-4fce-85b3-3e9022024c9a.png)
 
 ### - 사용한 모델
