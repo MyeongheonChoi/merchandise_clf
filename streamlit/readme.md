@@ -11,7 +11,7 @@
 </pre>
 *****
 
-## - 데모
+## 데모
 
 - streamlit 실행 방법
 <pre>
@@ -20,7 +20,7 @@ streamlit run streamlit/INTRO.py
 </code>
 </pre>
 
-## -Streamlit
+## Streamlit
 
 ### INTRO
 * INTRO 에서 hyperparameter 별 모델 성능 및 학습 과정에서의 metric 변화를 볼 수 있습니다.
