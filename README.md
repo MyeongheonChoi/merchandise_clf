@@ -31,6 +31,12 @@
 *****
 ## - 데모
 * `Streamlit`, `FastAPI`로 웹서비스 구현
+<pre>
+<code>
+uvicorn fastapi.main:app --host=0.0.0.0 --port=8000
+</code>
+</pre>
+
 ## -Streamlit
 
 ### INTRO
