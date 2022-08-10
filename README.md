@@ -33,7 +33,15 @@
 * `Streamlit`, `FastAPI`로 웹서비스 구현
 <pre>
 <code>
+# fastapi(서버) 실행
 uvicorn fastapi.main:app --host=0.0.0.0 --port=8000
+</code>
+</pre>
+
+<pre>
+<code>
+# streamlit 실행
+streamlit run streamlit/INTRO.py
 </code>
 </pre>
 
