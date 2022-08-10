@@ -31,16 +31,15 @@
 *****
 ## - 데모
 * `Streamlit`, `FastAPI`로 웹서비스 구현
+1. fastapi (서버) 실행 방법
 <pre>
 <code>
-# fastapi(서버) 실행
 uvicorn fastapi.main:app --host=0.0.0.0 --port=8000
 </code>
 </pre>
-
+2. streamlit 실행 방법
 <pre>
 <code>
-# streamlit 실행
 streamlit run streamlit/INTRO.py
 </code>
 </pre>
