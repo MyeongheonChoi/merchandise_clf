@@ -20,9 +20,8 @@ config_path = os.path.join(PROJECT_DIR, 'config', 'inference_config.yaml')
 config = load_yaml(config_path)
 
 #DEVICE
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-def load_model(select_model, maxlen, loss):
+def load_model(select_model, maxlen, loss, device):
 
     name = f'{select_model}_{maxlen}_{"".join(loss.split())}'
     output_dir      = os.path.join(PROJECT_DIR, 'results', config.MODEL.RESULTS[name])
@@ -51,7 +50,7 @@ def load_model(select_model, maxlen, loss):
 
     return trainer, tokenizer
 
-def inference(data, max_seq_len, trainer, tokenizer, topk = False, k = 5):
+def inference(data, max_seq_len, trainer, tokenizer, device, topk = False, k = 5):
 
     print('=' * 50)
     print('Tokenizing...')

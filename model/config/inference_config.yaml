@@ -30,7 +30,7 @@ MODEL:
 TEST:
     DIRECTORY : 
         dataset : uncased
-    CHECKPOINT_PATH : 'KoBERT_26_CrossEntropyLoss'      #{model_name}_{max_seq_len}_{lossfn}
+    CHECKPOINT_PATH : 'KoBERT_26_CrossEntropyLoss'      #{model_name}_{max_seq_len}_{lossfn}(_{dataset})
 
 LABELING:
     0: '교육'

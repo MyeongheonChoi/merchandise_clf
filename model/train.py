@@ -44,7 +44,7 @@ if __name__ == '__main__':
     learning_rate   = config.TRAIN.learning_rate.pretrained
     max_grad_norm   = config.TRAIN.max_grad_norm
     warmup_ratio    = config.TRAIN.warmup_ratio
-    run_name        = config.MODEL.model_name + train_serial
+    run_name        = config.MODEL.model_name + train_serial + '_nonumber'
     max_seq_len     = config.TRAIN.max_seq_len
     
     data = pd.read_csv(DATA_DIR + '_train.csv', index_col = 0)
@@ -90,10 +90,4 @@ if __name__ == '__main__':
     
     # Train
     trainer.train()
-    trainer.save_model(os.path.join(OUTPUT_DIR, f'{config.MODEL.model_name}_{config.TRAIN.max_seq_len}_{config.TRAIN.loss}'))
-
-
-    # Test
-    test_df = pd.read_csv(DATA_DIR + '_test.csv', index_col = 0)
-    test_dataset = CustomDataset(test_df, pretrained_link, max_seq_len)
-    trainer.evaluate(test_dataset)
+    trainer.save_model(os.path.join(OUTPUT_DIR, f'{config.MODEL.model_name}_{config.TRAIN.max_seq_len}_{config.TRAIN.loss}_{config.DIRECTORY.dataset}'))

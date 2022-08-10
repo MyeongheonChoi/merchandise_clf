@@ -26,6 +26,13 @@ def drop_duplicate_by_count(df, check):
 
 def regularize(df, cased = False):  ### cased = True -> 대소문자 구별 / cased = False -> 영어는 모두 소문자
     if type(df) == pd.DataFrame:
+
+        if df['거래일자'].dtype == int:
+            df['거래일자'] = pd.to_datetime(df['거래일자'], format = '%Y%m%d').astype(str)
+        
+        if df['금액'].dtype != int:
+            df['금액'] = df['금액'].str.replace(',', '').astype(int)
+
         regularized = []
         for word in tqdm(df['업체명']):
             regularized.append(re.sub("[^가-힣a-zA-Z0-9]", " ", word))

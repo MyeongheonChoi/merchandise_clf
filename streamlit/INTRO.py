@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title = '가맹점 분류기', page_icon = '🙌')
+st.set_page_config(page_title = '가맹점 분류기', page_icon = '🙌', layout = 'wide')
 
 wandb_url = {
     'KoBERT_26_CrossEntropy': 'https://wandb.ai/emseoyk/huggingface/reports/KoBERT_26_CrosssEntropy--VmlldzoyMzg3Mjg2?accessToken=1h36dl3ch6git1697g218ga7ikroxkw8a0ge2yksapr4rijmj1mh1rlywich1fon', 
@@ -26,12 +26,17 @@ wandb_url = {
 st.header('가맹점 분류기')
 # st.subheader('README')
 # st.markdown('dkssuddkssud')
+
+st.info(
+    '안녕하세요!  \n  저희는 마인즈앤컴퍼니에서 인턴을 하고 있는 최명헌, 김서연입니다.  \n  INTRO 페이지에서는 저희가 학습한 모델과, 해당 모델의 학습 기록 및 성능 점수를 확인할 수 있습니다.  \n  간단 시연에서는 모델을 선택한 후 실험해보고 싶은 업체 이름을 넣으면 업종 분류 결과를 확인할 수 있습니다. 다만 현재 가능한 모델은 KoBERT-26-Cross Entropy, KoELECTRA-26-Cross Entropy, RoBERTa-32-Cross Entropy입니다.  \n  마지막으로 가계부 페이지에서는 거래내역 파일을 업로드하면 업종별, 요일별 거래 내역을 분석한 리포트를 볼 수 있습니다.')
 st.subheader('모델 성능')
 
 select_model = st.selectbox('Select Model', ['KoBERT', 'KoELECTRA', 'RoBERTa'])
 maxlen = st.radio('Select Max Sequence Length', [26, 32])
 lossfn = st.radio('Select Loss Function', ['Cross Entropy', 'Focal Loss', 'Weighted Cross Entropy'])
-
-components.iframe(
-wandb_url[f'{select_model}_{maxlen}_{"".join(lossfn.split())}'], 
-width = 1000, height = 600, scrolling = True)
+if maxlen == 32 and lossfn == 'Weighted Cross Entropy':
+    st.warning('Wrong Hyperparameter!!!')
+else:
+    components.iframe(
+    wandb_url[f'{select_model}_{maxlen}_{"".join(lossfn.split())}'], 
+    width = 1000, height = 600, scrolling = True)
