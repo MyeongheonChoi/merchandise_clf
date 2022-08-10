@@ -11,6 +11,15 @@
 </pre>
 *****
 
+## - 데모
+
+- streamlit 실행 방법
+<pre>
+<code>
+streamlit run streamlit/INTRO.py
+</code>
+</pre>
+
 ## -Streamlit
 
 ### INTRO
