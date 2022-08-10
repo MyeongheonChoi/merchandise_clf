@@ -24,10 +24,10 @@ streamlit run streamlit/INTRO.py
 ## Directory Structure
 <pre>
 <code>
-merchandise_classifier
-                  ├── fastapi
-                  ├── model
-                  └── streamlit
+merchandise_clf
+        ├── fastapi
+        ├── model
+        └── streamlit
 </code>
 </pre>
 
