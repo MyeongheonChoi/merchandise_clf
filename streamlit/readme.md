@@ -1,4 +1,4 @@
-# Streamlit Directory Structure
+### Streamlit Directory Structure
 <pre>
 <code>
 ...
