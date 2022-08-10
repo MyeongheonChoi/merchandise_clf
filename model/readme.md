@@ -1,4 +1,4 @@
-### Model Directory Structure
+# Model Directory Structure
 <pre>
 <code>
 ...
@@ -32,6 +32,8 @@
 </pre>
 
 *****
+# Modeling 과정
+***
 ## - 데이터 수집 및 전처리
 ![데이터 소개](https://user-images.githubusercontent.com/97024674/182273836-e6958ba0-b951-4367-9bdb-b771f3e56855.png)
 ![데이터 Labeling](https://user-images.githubusercontent.com/97024674/182273877-48076fa2-cfcb-4332-b05e-8a3625d2c21c.png)
