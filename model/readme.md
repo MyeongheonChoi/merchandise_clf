@@ -5,7 +5,6 @@
 └── model
       ├── config
       │     ├── inference_config.yaml
-      │     ├── preprocess_config.yaml
       │     ├── split_config.yaml
       │     └── train_config.yaml
       ├── data
